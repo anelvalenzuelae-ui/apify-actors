@@ -1,0 +1,81 @@
+{
+  "actorSpecVersion": 1,
+  "name": "lead-generation-tool-mx",
+  "title": "Lead Generation Tool - Mexico",
+  "description": "Herramienta profesional para generar leads de empresas mexicanas. Busca y extrae contactos (emails, teléfonos, direcciones) de directorios empresariales y LinkedIn. Ideal para ventas B2B y prospección.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_HEADLESS": 1
+  },
+  "dockerfile": "Dockerfile",
+  "gitRepo": "https://github.com/xerophylous_xyloidin/lead-generation",
+  "categories": [
+    "LEAD_GENERATION",
+    "B2B",
+    "SALES_INTELLIGENCE"
+  ],
+  "defaultDatasetId": "default",
+  "defaultKeyValueStoreId": "default",
+  "defaultRequestQueueId": "default",
+  "memoryMbytes": 2048,
+  "timeoutSecs": 3600,
+  "input": {
+    "title": "Lead Generation Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "industry": {
+        "title": "Industry",
+        "description": "Industria a buscar (ej: 'tecnología', 'construcción', 'manufactura')",
+        "type": "string",
+        "default": "tecnología",
+        "editor": "textfield"
+      },
+      "state": {
+        "title": "State",
+        "description": "Estado mexicano (ej: 'Mexico', 'Jalisco', 'Nuevo Leon')",
+        "type": "string",
+        "default": "Mexico",
+        "editor": "textfield"
+      },
+      "max_results": {
+        "title": "Maximum Results",
+        "description": "Máximo número de leads (1-100)",
+        "type": "integer",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "include_linkedin": {
+        "title": "Include LinkedIn Data",
+        "description": "Incluir información de LinkedIn",
+        "type": "boolean",
+        "default": true
+      },
+      "extract_emails": {
+        "title": "Extract Emails",
+        "description": "Extraer direcciones de email",
+        "type": "boolean",
+        "default": true
+      },
+      "extract_phones": {
+        "title": "Extract Phones",
+        "description": "Extraer números telefónicos",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["industry"]
+  },
+  "pricing": {
+    "model": "PAY_PER_RESULT",
+    "pricePerResult": 0.10,
+    "currency": "USD"
+  },
+  "author": {
+    "username": "xerophylous_xyloidin",
+    "email": "anel.valenzuela.e@gmail.com"
+  },
+  "readme": "# Lead Generation Tool\n\nHerramienta profesional para generar leads de empresas mexicanas.\n\n## Características\n\n- Búsqueda por industria y estado\n- Extracción de contactos (emails, teléfonos)\n- Información de directorios empresariales\n- Datos de LinkedIn\n- Validación de contactos\n- Optimizado para mercado mexicano\n\n## Casos de Uso\n\n- Prospección de ventas B2B\n- Investigación de mercado\n- Expansión empresarial\n- Análisis de competencia\n- Inteligencia comercial\n\n## Precios\n\n$0.10 USD por lead generado\n\n## Ejemplos\n\n```json\n{\n  \"industry\": \"manufactura\",\n  \"state\": \"Jalisco\",\n  \"max_results\": 50\n}\n```\n"
+}

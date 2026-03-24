@@ -1,0 +1,74 @@
+{
+  "actorSpecVersion": 1,
+  "name": "ecommerce-price-monitor-mx",
+  "title": "E-commerce Price Monitor - Mexico",
+  "description": "Monitor de precios en tiempo real para Mercado Libre y Amazon México. Compara precios, rastrea cambios y encuentra las mejores ofertas. Ideal para análisis de precios, investigación de mercado y optimización de estrategias de precios.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_HEADLESS": 1
+  },
+  "dockerfile": "Dockerfile",
+  "gitRepo": "https://github.com/xerophylous_xyloidin/price-monitor",
+  "categories": [
+    "ECOMMERCE",
+    "PRICE_MONITORING",
+    "MARKET_RESEARCH"
+  ],
+  "defaultDatasetId": "default",
+  "defaultKeyValueStoreId": "default",
+  "defaultRequestQueueId": "default",
+  "memoryMbytes": 2048,
+  "timeoutSecs": 3600,
+  "input": {
+    "title": "Price Monitor Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "product_name": {
+        "title": "Product Name",
+        "description": "Nombre del producto a monitorear",
+        "type": "string",
+        "default": "laptop",
+        "editor": "textfield"
+      },
+      "max_results": {
+        "title": "Maximum Results",
+        "description": "Máximo de resultados por marketplace (1-50)",
+        "type": "integer",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 50
+      },
+      "compare_prices": {
+        "title": "Compare Prices",
+        "description": "Comparar precios entre Mercado Libre y Amazon",
+        "type": "boolean",
+        "default": true
+      },
+      "include_ratings": {
+        "title": "Include Ratings",
+        "description": "Incluir ratings y reviews",
+        "type": "boolean",
+        "default": true
+      },
+      "include_shipping": {
+        "title": "Include Shipping",
+        "description": "Incluir información de envío",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["product_name"]
+  },
+  "pricing": {
+    "model": "PAY_PER_RESULT",
+    "pricePerResult": 0.02,
+    "currency": "USD"
+  },
+  "author": {
+    "username": "xerophylous_xyloidin",
+    "email": "anel.valenzuela.e@gmail.com"
+  },
+  "readme": "# E-commerce Price Monitor\n\nMonitor de precios en tiempo real para marketplaces mexicanos.\n\n## Características\n\n- Monitoreo en Mercado Libre y Amazon México\n- Comparación de precios\n- Extracción de: precio, vendedor, rating, envío\n- Identificación de mejores ofertas\n- Datos en tiempo real\n- Optimizado para mercado mexicano\n\n## Casos de Uso\n\n- Análisis de precios de competencia\n- Investigación de mercado\n- Optimización de estrategias de precios\n- Monitoreo de productos\n- Inteligencia comercial\n\n## Precios\n\n$0.02 USD por resultado\n\n## Ejemplos\n\n```json\n{\n  \"product_name\": \"iphone 15\",\n  \"max_results\": 30,\n  \"compare_prices\": true\n}\n```\n"
+}

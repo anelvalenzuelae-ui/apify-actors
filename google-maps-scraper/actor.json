@@ -1,0 +1,75 @@
+{
+  "actorSpecVersion": 1,
+  "name": "google-maps-business-scraper-mx",
+  "title": "Google Maps Business Scraper - Mexico",
+  "description": "Extrae datos de negocios, ubicaciones, teléfonos, sitios web y reseñas de Google Maps. Perfecto para lead generation, investigación de mercado y análisis de competencia. Optimizado para mercado mexicano.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_HEADLESS": 1
+  },
+  "dockerfile": "Dockerfile",
+  "gitRepo": "https://github.com/xerophylous_xyloidin/google-maps-scraper",
+  "categories": [
+    "BUSINESS_DATA",
+    "LEAD_GENERATION",
+    "LOCAL_SEO"
+  ],
+  "defaultDatasetId": "default",
+  "defaultKeyValueStoreId": "default",
+  "defaultRequestQueueId": "default",
+  "memoryMbytes": 2048,
+  "timeoutSecs": 3600,
+  "input": {
+    "title": "Google Maps Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "query": {
+        "title": "Business Type",
+        "description": "Tipo de negocio a buscar (ej: 'restaurantes', 'farmacias', 'plomeros')",
+        "type": "string",
+        "default": "restaurantes",
+        "editor": "textfield"
+      },
+      "location": {
+        "title": "Location",
+        "description": "Ubicación (ej: 'Mexico City', 'Guadalajara', 'Monterrey')",
+        "type": "string",
+        "default": "Mexico City",
+        "editor": "textfield"
+      },
+      "max_results": {
+        "title": "Maximum Results",
+        "description": "Máximo número de negocios a scrape (1-100)",
+        "type": "integer",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "include_reviews": {
+        "title": "Include Reviews",
+        "description": "Incluir reseñas recientes",
+        "type": "boolean",
+        "default": true
+      },
+      "include_photos": {
+        "title": "Include Photos",
+        "description": "Incluir URLs de fotos",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["query", "location"]
+  },
+  "pricing": {
+    "model": "PAY_PER_RESULT",
+    "pricePerResult": 0.03,
+    "currency": "USD"
+  },
+  "author": {
+    "username": "xerophylous_xyloidin",
+    "email": "anel.valenzuela.e@gmail.com"
+  },
+  "readme": "# Google Maps Business Scraper\n\nExtrae datos de negocios de Google Maps para cualquier ubicación y tipo de negocio.\n\n## Características\n\n- Búsqueda por tipo de negocio y ubicación\n- Extracción de: nombre, teléfono, dirección, sitio web\n- Ratings y número de reseñas\n- Horarios de operación\n- Coordenadas GPS\n- Reseñas recientes\n- Fotos del negocio\n- Optimizado para mercado mexicano\n\n## Casos de Uso\n\n- Lead generation B2B\n- Investigación de mercado local\n- Análisis de competencia\n- Inteligencia empresarial\n- Expansión de negocios\n\n## Precios\n\n$0.03 USD por negocio scrapado\n\n## Ejemplos\n\n```json\n{\n  \"query\": \"plomeros\",\n  \"location\": \"Mexico City\",\n  \"max_results\": 50\n}\n```\n"
+}

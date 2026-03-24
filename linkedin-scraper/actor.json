@@ -1,0 +1,74 @@
+{
+  "actorSpecVersion": 1,
+  "name": "linkedin-profile-scraper-mx",
+  "title": "LinkedIn Profile Scraper - Mexico",
+  "description": "Extrae datos de perfiles públicos de LinkedIn. Ideal para lead generation, investigación de mercado, y análisis de profesionales. Optimizado para mercado mexicano.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_HEADLESS": 1
+  },
+  "dockerfile": "Dockerfile",
+  "gitRepo": "https://github.com/xerophylous_xyloidin/linkedin-scraper",
+  "categories": [
+    "SOCIAL_MEDIA",
+    "LEAD_GENERATION",
+    "DATA_EXTRACTION"
+  ],
+  "defaultDatasetId": "default",
+  "defaultKeyValueStoreId": "default",
+  "defaultRequestQueueId": "default",
+  "memoryMbytes": 2048,
+  "timeoutSecs": 3600,
+  "input": {
+    "title": "LinkedIn Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "search_query": {
+        "title": "Search Query",
+        "description": "Término de búsqueda (ej: 'desarrollador python mexico')",
+        "type": "string",
+        "default": "desarrollador python mexico",
+        "editor": "textfield"
+      },
+      "max_results": {
+        "title": "Maximum Results",
+        "description": "Máximo número de perfiles a scrape (1-50)",
+        "type": "integer",
+        "default": 10,
+        "minimum": 1,
+        "maximum": 50
+      },
+      "include_experience": {
+        "title": "Include Experience",
+        "description": "Incluir historial de experiencia laboral",
+        "type": "boolean",
+        "default": true
+      },
+      "include_education": {
+        "title": "Include Education",
+        "description": "Incluir información de educación",
+        "type": "boolean",
+        "default": true
+      },
+      "include_skills": {
+        "title": "Include Skills",
+        "description": "Incluir habilidades",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["search_query"]
+  },
+  "pricing": {
+    "model": "PAY_PER_RESULT",
+    "pricePerResult": 0.05,
+    "currency": "USD"
+  },
+  "author": {
+    "username": "xerophylous_xyloidin",
+    "email": "anel.valenzuela.e@gmail.com"
+  },
+  "readme": "# LinkedIn Profile Scraper\n\nExtrae datos públicos de perfiles de LinkedIn sin necesidad de login.\n\n## Características\n\n- Búsqueda de perfiles por término\n- Extracción de datos: nombre, título, empresa, ubicación\n- Historial de experiencia laboral\n- Información de educación\n- Habilidades\n- Optimizado para mercado mexicano\n\n## Casos de Uso\n\n- Lead generation\n- Investigación de mercado\n- Análisis de competencia\n- Reclutamiento\n- Inteligencia empresarial\n\n## Precios\n\n$0.05 USD por perfil scrapado\n\n## Ejemplos\n\n```json\n{\n  \"search_query\": \"ingeniero de software mexico\",\n  \"max_results\": 20\n}\n```\n"
+}

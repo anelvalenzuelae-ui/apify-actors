@@ -1,0 +1,75 @@
+{
+  "actorSpecVersion": 1,
+  "name": "whatsapp-business-scraper-mx",
+  "title": "WhatsApp Business Scraper - Mexico",
+  "description": "Extrae números de WhatsApp Business de empresas mexicanas. Ideal para marketing directo, ventas B2B y prospección. Busca en Google Maps, directorios empresariales y bases de datos de negocios.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_HEADLESS": 1
+  },
+  "dockerfile": "Dockerfile",
+  "gitRepo": "https://github.com/xerophylous_xyloidin/whatsapp-scraper",
+  "categories": [
+    "LEAD_GENERATION",
+    "MARKETING",
+    "BUSINESS_DATA"
+  ],
+  "defaultDatasetId": "default",
+  "defaultKeyValueStoreId": "default",
+  "defaultRequestQueueId": "default",
+  "memoryMbytes": 2048,
+  "timeoutSecs": 3600,
+  "input": {
+    "title": "WhatsApp Business Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "business_type": {
+        "title": "Business Type",
+        "description": "Tipo de negocio (ej: 'restaurantes', 'plomeros', 'abogados')",
+        "type": "string",
+        "default": "restaurantes",
+        "editor": "textfield"
+      },
+      "location": {
+        "title": "Location",
+        "description": "Ubicación (ej: 'Mexico City', 'Guadalajara')",
+        "type": "string",
+        "default": "Mexico City",
+        "editor": "textfield"
+      },
+      "max_results": {
+        "title": "Maximum Results",
+        "description": "Máximo número de contactos (1-100)",
+        "type": "integer",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "include_phone": {
+        "title": "Include Phone",
+        "description": "Incluir números telefónicos",
+        "type": "boolean",
+        "default": true
+      },
+      "include_address": {
+        "title": "Include Address",
+        "description": "Incluir direcciones",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["business_type"]
+  },
+  "pricing": {
+    "model": "PAY_PER_RESULT",
+    "pricePerResult": 0.08,
+    "currency": "USD"
+  },
+  "author": {
+    "username": "xerophylous_xyloidin",
+    "email": "anel.valenzuela.e@gmail.com"
+  },
+  "readme": "# WhatsApp Business Scraper\n\nExtrae números de WhatsApp Business de empresas mexicanas.\n\n## Características\n\n- Búsqueda por tipo de negocio y ubicación\n- Extracción de números WhatsApp\n- Información de contacto completa\n- Validación de números\n- Datos de Google Maps y directorios\n- Optimizado para mercado mexicano\n\n## Casos de Uso\n\n- Marketing directo por WhatsApp\n- Prospección de ventas\n- Generación de leads\n- Comunicación B2B\n- Investigación de mercado\n\n## Precios\n\n$0.08 USD por contacto con WhatsApp\n\n## Ejemplos\n\n```json\n{\n  \"business_type\": \"plomeros\",\n  \"location\": \"Mexico City\",\n  \"max_results\": 50\n}\n```\n"
+}
